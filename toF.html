@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="bg-light border navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="font-size: 24px; font-weight: bold; font-family: 'Bebas Neue', sans-serif;">Temperature Converter</a>
+                <!-- Navbar toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/toC.html">Convert to Celcius</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/toF.html">Convert to Farenheight</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="mb-3">
+        <label for="CtoF">Temp in Celcius:</label>
+        <input type="text" id="CtoF" name="CtoF" placeholder="Celcius" required>
+    </div>
+    <button type="button" onclick="toFarenheight()">Convert to Farenheight</button>
+    <div id="result"></div>
+    
+    <script>
+        function toFarenheight() {
+            let celciusInput = document.getElementById("CtoF").value;
+            if (!isNaN(celciusInput)) {
+                let farenheight = (parseFloat(celciusInput) + 32) * 1.8;
+    
+                document.getElementById("result").innerHTML = "Temperature in farenheight: " + farenheight.toFixed(2) + " °F";
+            } else {
+                // Display error message if input is not a number
+                alert("Please enter a valid number for Celcius temperature.");
+            }
+        }
+    </script>
